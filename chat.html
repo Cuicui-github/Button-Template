@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+Button:hover{
+color:white;
+}
+.inchat {
+    background-color: #CC1212;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: #cccccc;
+    padding: 21px 18px 13px 18px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+	margin-left:auto;
+    margin-right:auto;
+    transform-origin: center;
+    top: 85%;
+    position: fixed;
+    right: 70px;
+}
+.closeBtn{
+	background-color: #CC1212;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 20px;
+    cursor: pointer;
+    width:100%;
+    text-align:left;
+  
+    
+}
+.popup .popuptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: white;
+    color: #000044;
+    text-align: auto;
+    border-style:solid;
+    border-width:0px;
+    border-color:grey;
+    border-radius: 0px;
+    position: fixed;
+    bottom: 17%;
+    right: 3%;
+    margin-left: -80px;
+}
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding: none;
+    margin-left: 0px;
+    border-width: 0px;
+    border-style: solid;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+}
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+  
+    border-radius: 10px;
+    border-width:0px;
+    box-shadow: darkgrey 0px 0px 30px 5px
+
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+.detail{
+text-align:center;
+font-size:15px;
+padding:15px 15px;
+line-height:25px;
+}
+.mytext{
+    padding: 0px 15px 20px 15px;
+    border-style:solid;
+    border-width:1px;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #d9d9d9;
+    font-size: 15px;
+    width:100%;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    text-align:left;
+    outline:none;
+    }
+#infile   {visibility: hidden;}
+input  { font-size: 15px;}
+</style>
+</head>
+<body>
+
+<div class="popup">
+<button id="myBtn" title="Message us" class="inchat" onclick = "myFunction()"><i class="glyphicon glyphicon-comment" style="font-size:25px"></i></button>
+
+  <div class="popuptext" id="myPopup">
+  <button id="myBtn" class="closeBtn"  onclick="myFunction()"><i class="glyphicon glyphicon-pencil" style="font-size:16px"></i> Message us<i class="material-icons" style="float:right;">close</i></button>
+   <div class="detail">
+    <p>
+    <a href="https://www.continents.us">
+<img border="0" src="https://www.continents.us/assets/uploads/logos/logo-81151608157784.png" width="80" height="80">
+</a><br>
+Continents Academy
+<br>
+<br>
+    Hours of Operations 09:00 - 17:00 EST<br>
+We're not currently online but if you leave a message, we’ll get back to you here or by email. Please note I am academic admission adviser, job consultations are not allowed.<br>
+<a style="color:grey;" href="https://chatra.io/?utm_source=logo_p&utm_campaign=US_tryit.w3schools.com&utm_medium=selfie_en_get">We run on <i class="glyphicon glyphicon-comment" style="font-size:12px"></i> Chatra</a>
+</P>
+    </div>
+   <div class="mytext" >
+   <input type="file" id="infile" onChange="changeName();" />
+   <input style="width:90%;border:none;outline:none;" placeholder="Message..." id="filename" />
+   <a href="javascript: openFile();"><i class="material-icons" style="float:right;color:grey;">attachment</i></a>
+   </div>
+</div>
+</div>
+<script>
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+<script language="JavaScript">
+function changeName()
+{
+    var f = document.getElementById("filename");
+    f.value = document.getElementById("infile").value;
+}
+function openFile()
+{
+    document.getElementById("infile").click(); 
+}
+</script>
+</body>
+</html>
