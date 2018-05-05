@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+Button:hover{
+color:white;
+}
+.inchat {
+    background-color: #66ff99;
+    border-radius: 3%;
+    border: none;
+    outline: none;
+    color: #e6e6e6;
+    padding: 13px 11px 13px 11px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+	margin-left:auto;
+    margin-right:auto;
+    transform-origin: center;
+    top: 85%;
+    position: fixed;
+    right: 70px;
+}
+.closeBtn{
+	background-color: #66ff99;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 18px;
+    cursor: pointer;
+    width:100%;
+    text-align:left;  
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: white;
+    color: #000044;
+    text-align: auto;
+    border-style:solid;
+    border-width:0px;
+    border-color:grey;
+    border-radius: 0px;
+    position: fixed;
+    bottom: 17%;
+    right: 5%;
+    margin-left: -80px;
+}
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding: none;
+    margin-left: 0px;
+    border-width: 0px;
+    border-style: solid;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+}
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+  
+    border-radius: 10px;
+    border-width:0px;
+    box-shadow: darkgrey 0px 0px 30px 5px
+
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+.detail{
+text-align:left;
+font-size:15px;
+padding:15px 15px;
+line-height:25px;
+}
+.mytext{
+    padding: 0px 15px 20px 15px;
+    border-style:solid;
+    border-width:1px;
+    border-radius: 0px 0px 10px 10px;
+    border-color: #d9d9d9;
+    font-size: 15px;
+    width:100%;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    text-align:left;
+    outline:none;
+    }
+#infile   {visibility: hidden;}
+input  { font-size: 15px;}
+.face{ 
+    background-color:white;
+    border-radius:none;
+    border: none;
+    outline: none;
+    color:white;
+    padding: 15px 15px 15px 15px;
+    text-align: center;
+    display: inline-block;
+    }
+    .contact{
+    display: none;
+    position: relative;
+   }
+</style>
+</head>
+<body>
+
+<div class="popup">
+<button id="myBtn" title="Feedback" class="inchat" onclick = "myFunction()">Feedback <i class="fa fa-comment" style="font-size:20px"></i></button>
+  <div class="popuptext" id="myPopup">
+  <button id="myBtn" title="Close" class="closeBtn"  onclick="myFunction()"><i class="glyphicon glyphicon-pencil" style="font-size:18px;"></i> Feedback<i title="Minimize" class="material-icons"    onMouseOver="this.style.color='white'" onMouseOut="this.style.color='#ccffdd'"
+ style="float:right;color:#ccffdd;font-size:23px;">close</i>
+  </button>
+  	<div class="detail">
+    <p style="text-align:center;">
+    How does this blog make you feel?<br>
+    
+	<button class="face"><i id="face-smile"class="far fa-smile"style="font-size:35px;color:#b3b3b3" onclick="changeColor1()"></i></button>
+	<button class="face"><i id="face-meh"class="far fa-meh"style="font-size:35px;color:#b3b3b3"onclick="changeColor2()"></i></button>
+	<button class="face"><i id="face-frown"class="far fa-frown"style="font-size:35px;color:#b3b3b3"onclick="changeColor3()"></i>
+</button>
+	</p>
+Your words are important to us, please leave your comments, qusitions or anything you would like to share, we'll get back to you as soon as possible.
+<br>
+	<input type="checkbox" id="myCheck" name="" value="" onclick="showContact()"> I am happy to be contacted.
+	  <div class="contact" id="contact">
+Name:<br><input type="text" name="name" placeholder="Name"><br>
+Email:<br><input type="text" name="email" placeholder="Email"><br>
+	  </div>
+	</div>
+   
+    <div class="mytext" >
+    <input type="file" id="infile" onChange="changeName();" />
+   <input style="width:90%;border:none;outline:none;" placeholder="Message..." id="filename" />
+   <a href="javascript: openFile();"><i class="material-icons" style="float:right;color:grey;">attachment</i></a>
+    </div>
+  </div>
+</div>
+<script>
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+<script language="JavaScript">
+function changeName()
+{
+    var f = document.getElementById("filename");
+    f.value = document.getElementById("infile").value;
+}
+function openFile()
+{
+    document.getElementById("infile").click(); 
+}
+</script>
+<script>
+function showContact() {
+    var checkBox = document.getElementById("myCheck");
+    var contact = document.getElementById("contact");
+    if (checkBox.checked == true){
+        contact.style.display = "block";
+    } else {
+       contact.style.display = "none";
+    }
+}
+</script>
+<script>
+function changeColor1(){
+var face=document.getElementById("face-smile");
+face.style.color="red";
+document.getElementById("face-meh").style.color="#b3b3b3";
+document.getElementById("face-frown").style.color="#b3b3b3";
+}
+function changeColor2(){
+var face=document.getElementById("face-meh");
+face.style.color="green";
+document.getElementById("face-smile").style.color="#b3b3b3";
+document.getElementById("face-frown").style.color="#b3b3b3";
+}
+function changeColor3(){
+var face=document.getElementById("face-frown");
+face.style.color="blue";
+document.getElementById("face-meh").style.color="#b3b3b3";
+document.getElementById("face-smile").style.color="#b3b3b3";
+}
+</script>
+</body>
+</html>
