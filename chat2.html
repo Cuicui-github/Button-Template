@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+
+Button:hover{
+color:white;
+}
+.inchat {
+    padding: 15px 17px 15px 17px;
+    background-color: #CC1212;
+    border-radius: 50%;
+    display: inline-block;
+    border: none;
+	margin-left:auto;
+    margin-right:auto;
+    top: 85%;
+    position: fixed;
+    right: 25px;
+    box-shadow: darkgrey 0px 2px 10px 3px
+}
+.closeBtn{
+	background-color: #CC1212;
+    color: white;
+    padding: 11px 10px;
+    border-radius: 6px 6px 0px 0px;
+    font-size: 15px;
+    cursor: pointer;
+    width:100%;
+    text-align:left;  
+}
+.popup .popuptext {
+    visibility: hidden;
+    width:500px;
+    background-color: white;
+    color: #000044;
+    text-align: auto;
+    border-style:solid;
+    border-width:0px;
+    border-color:grey;
+    border-radius: 0px;
+    position: fixed;
+    bottom: 17%;
+    right:5%;
+    margin-left: -80px;
+}
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding: none;
+    margin-left: 0px;
+    border-width: 0px;
+    border-style: solid;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+}
+.popup .show {
+    visibility: visible;
+    animation: fadeIn 1s;
+    border-radius: 6px;
+    border-width:0px;
+    box-shadow: darkgrey 0px 0px 30px 5px
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+.detail{
+text-align:left;
+font-size:15px;
+padding:20px 20px 24px 20px;
+line-height:28px;
+text-align: justify;
+text-justify: inter-word;
+}
+
+</style>
+</head>
+<body>
+
+<div class="popup">
+<button id="myBtn" title="Message us" class="inchat" onclick = "myFunction()"><i class="fa fa-at" style="font-size:38px;color:white"></i>
+</button>
+
+  <div class="popuptext" id="myPopup">
+  <label id="myBtn" title="Close" class="closeBtn"  onclick="myFunction()"><i class="glyphicon glyphicon-pencil" style="font-size:15px;"></i> Message us...<i title="Minimize" class="material-icons"    onMouseOver="this.style.color='white'" onMouseOut="this.style.color='#ffcccc'"
+ style="float:right;color:#ffcccc;font-size:20px;">close</i></label>
+   <div class="detail">
+   <p style="line-height:18px;font-size:15px;color:#000044;">The Continents State University is authorized by the State of Florida, Department of Education Commission on Independent Education, Section 1005.06(1)(f), to award Associate, Bachelor, Master and Doctorate Degrees.</p>
+   <form  name="form1" method="post" action="send.php"> 
+<div class="form-group">
+<div class="row" >
+<div class="col-xs-12">
+
+    <span>Full Name</span>
+    <input name="name" class="form-control" placeholder="Your Full Name" required/>
+  </div>
+<div class="col-xs-6">
+    <span>Email Address</span>
+    <input name="email" class="form-control" placeholder="Email Address" required/>
+  </div>
+  
+<div class="col-xs-6">
+    <span>Phone Number</span>
+    <input name="number" class="form-control" placeholder="Phone Number" required />
+  </div>
+  </div>
+</div>
+
+    <span>Programs List</span>
+        <select name="program" class="form-control" id="sel1">
+        <option disabled selected value>-- Non-Degree Programs --</option>
+        <option>Certificate in Pharmacy Technician</option>
+        <option>Test of English as a Foreign Language</option>
+        <option disabled> -- Associate's Degree Programs -- </option>
+        <option>Associate of Arts in Counseling</option>
+        <option>Associate of Arts in Fine Arts</option>
+        <option>Associate of Art in Media Communications</option>
+        <option>Associate of Science in Social Work</option>
+        <option>Associate of Science in Administration</option>
+        <option>Associate of Science in Education</option>
+        <option disabled> -- Bachelor's Degree Programs -- </option>        
+        <option>Bachelor of Arts in Counseling</option>
+        <option>Bachelor of Arts in Fine Arts</option>
+        <option>Bachelor of Art in Media Communications</option>
+        <option>Bachelor of Science in Social Work</option>
+        <option>Bachelor of Science in Administration</option>
+        <option>Bachelor of Science in Education</option>
+        <option disabled> -- Master's Degree Programs -- </option>        
+        <option>Master of Arts in Counseling</option>
+        <option>Master of Arts in Fine Arts</option>
+        <option>Master of Art in Media Communications</option>
+        <option>Master of Science in Social Work</option>
+        <option>Master of Science in Administration</option>
+        <option>Master of Science in Education</option>
+        <option disabled> -- Doctorates Degree Programs -- </option>        
+        <option>Doctor in Counseling, PhD</option>
+        <option>Doctor in Fine Arts, PhD</option>
+        <option>Doctor in Media Communications, PhD</option>
+        <option>Doctor in Social Work, PhD</option>
+        <option>Doctor in Administration, PhD</option>
+        <option>Doctor in Education, EdD</option>
+        
+      </select>
+<div class="row" >
+<div class="col-xs-12">
+       Have question in mind?<br><input class="form-control"  type="text" name="question" >
+  </div>
+  
+  <div class="form-group">
+<div class="col-xs-12">
+    <span>Click "Submit" to be contacted</span><br>
+
+<button class="btn btn-danger form-control" type="submit" value="Submit">Submit</button>
+
+  </div>
+  </div>  </div>  
+  </form>
+  </div>  </div>  </div>  
+<script>
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    document.getElementById("submitBtn").style.display="none";
+    document.getElementById("attachment").style.display="block";
+}
+</script>
+</body>
+</html>
