@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="MyProjectWork/mystyle.css">
 <style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 Button:hover{
 color:white;
 }
@@ -13,7 +15,7 @@ color:white;
     border-radius: 50%;
     border: none;
     outline: none;
-    color: #cccccc;
+    color: #f2f2f2;
     padding: 21px 18px 13px 18px;
     text-align: center;
     display: inline-block;
@@ -30,13 +32,12 @@ color:white;
     color: white;
     padding: 15px 15px;
     border-radius: 10px 10px 0px 0px;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
     width:100%;
-    text-align:left;
-  
-    
+    text-align:left;  
 }
+
 .popup .popuptext {
     visibility: hidden;
     width: 400px;
@@ -49,7 +50,7 @@ color:white;
     border-radius: 0px;
     position: fixed;
     bottom: 17%;
-    right: 3%;
+    right:5%;
     margin-left: -80px;
 }
 .popup .popuptext::after {
@@ -108,7 +109,27 @@ line-height:25px;
     outline:none;
     }
 #infile   {visibility: hidden;}
-input  { font-size: 15px;}
+#submitBtn{
+	display:none;
+	border: none;
+    outline: none;
+    padding:0px;
+}
+ .contact{
+    display: none;
+    position: relative;
+    text-align: left;
+   }
+.contactInput{
+   border-radius: 4px;
+   outline:none;
+   height:32px;
+   padding:6px 6px;
+   font-size:14px;
+   color:#555;
+   border:1px solid #ccc;
+   width:70%;
+   }
 </style>
 </head>
 <body>
@@ -117,7 +138,8 @@ input  { font-size: 15px;}
 <button id="myBtn" title="Message us" class="inchat" onclick = "myFunction()"><i class="glyphicon glyphicon-comment" style="font-size:25px"></i></button>
 
   <div class="popuptext" id="myPopup">
-  <button id="myBtn" class="closeBtn"  onclick="myFunction()"><i class="glyphicon glyphicon-pencil" style="font-size:16px"></i> Message us<i class="material-icons" style="float:right;">close</i></button>
+  <button id="myBtn" title="Close" class="closeBtn"  onclick="myFunction()"><i class="glyphicon glyphicon-pencil" style="font-size:15px;"></i> Message us<i title="Minimize" class="material-icons"    onMouseOver="this.style.color='white'" onMouseOut="this.style.color='#ffcccc'"
+ style="float:right;color:#ffcccc;font-size:20px;">close</i></button>
    <div class="detail">
     <p>
     <a href="https://www.continents.us">
@@ -128,13 +150,43 @@ Continents Academy
 <br>
     Hours of Operations 09:00 - 17:00 EST<br>
 We're not currently online but if you leave a message, we’ll get back to you here or by email. Please note I am academic admission adviser, job consultations are not allowed.<br>
-<a style="color:grey;" href="https://chatra.io/?utm_source=logo_p&utm_campaign=US_tryit.w3schools.com&utm_medium=selfie_en_get">We run on <i class="glyphicon glyphicon-comment" style="font-size:12px"></i> Chatra</a>
 </P>
+<p style="text-align:left;"><input type="checkbox" id="myCheck" name="" value="" onclick="showContact()"> 
+I am happy to be contacted.
+</p>
+	  <div class="contact" id="contact">
+Full Name:<br><input class="contactInput" type="text" name="name" ><br>
+Email:<br><input class="contactInput" type="text" name="email" ><br>
+Phone:<br><input class="contactInput" type="text" name="phone"><br>
+
+  
+  <form>
+    <div class="form-group">
+   Select option1:
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      
+   Select option2:
+      <select class="form-control" id="sel2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      
+    </div>
+  </form>
+	  </div>
     </div>
    <div class="mytext" >
    <input type="file" id="infile" onChange="changeName();" />
-   <input style="width:90%;border:none;outline:none;" placeholder="Message..." id="filename" />
-   <a href="javascript: openFile();"><i class="material-icons" style="float:right;color:grey;">attachment</i></a>
+   <input style="width:85%;border:none;outline:none;" placeholder="Message..." id="content"onClick= "showBtn()"/>
+   <a href="javascript: openFile();"><i id="attachment"class="material-icons" style="float:right;color:grey;">attachment</i></a>
+   <button id="submitBtn" style="float:right;"onclick="submit()"><i class="material-icons"style="color:grey;">send</i></button>
    </div>
 </div>
 </div>
@@ -142,17 +194,41 @@ We're not currently online but if you leave a message, we’ll get back to you h
 function myFunction() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
+    document.getElementById("submitBtn").style.display="none";
+    document.getElementById("attachment").style.display="block";
 }
 </script>
 <script language="JavaScript">
 function changeName()
 {
-    var f = document.getElementById("filename");
+    var f = document.getElementById("content");
     f.value = document.getElementById("infile").value;
 }
 function openFile()
 {
     document.getElementById("infile").click(); 
+}
+</script>
+<script>
+function showBtn() {
+   document.getElementById("submitBtn").style.display="block";
+   document.getElementById("attachment").style.display="none";
+}
+</script>
+<script>
+function submit(){
+document.getElementById("content").submit();
+}
+</script>
+<script>
+function showContact() {
+    var checkBox = document.getElementById("myCheck");
+    var contact = document.getElementById("contact");
+    if (checkBox.checked == true){
+        contact.style.display = "block";
+    } else {
+       contact.style.display = "none";
+    }
 }
 </script>
 </body>
